@@ -16,14 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Project_Flow"
-run/main_scene="res://scenes/Rooms/scn_tmp_room.tscn"
+run/main_scene="res://Rooms/scn_tmp_room.tscn"
 boot_splash/bg_color=Color( 0.203922, 0.411765, 0.294118, 1 )
 config/icon="res://icon.png"
 
 [autoload]
 
-global="*res://scripts/engine/global.gd"
-settings="*res://scripts/engine/scr_player_settings.gd"
+global="*res://Engine/global.gd"
+settings="*res://Engine/scr_player_settings.gd"
 
 [debug]
 
