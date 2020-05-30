@@ -27,6 +27,7 @@ settings="*res://Engine/scr_player_settings.gd"
 
 [debug]
 
+settings/fps/force_fps=60
 shapes/collision/shape_color=Color( 0, 0.701961, 0.701961, 0.501961 )
 shapes/navigation/geometry_color=Color( 0.101961, 1, 1, 0.4 )
 
