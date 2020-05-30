@@ -41,4 +41,7 @@ func _on_WaveTimer_timeout():
 
 func _on_TriggerBox_body_entered(body):
 	if( body.is_in_group("Player") && !active) : 
+		for child in get_children() :
+			if child.name == "TriggerBox" :
+				child.queue_free()
 		wave_timer.start()
