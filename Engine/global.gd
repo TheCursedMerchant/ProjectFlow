@@ -30,7 +30,8 @@ func goto_scene(path):
 	var new_scene = s.instance()
 	get_tree().get_root().add_child(new_scene)
 	get_tree().set_current_scene(new_scene)
-	current_scene.queue_free()
+	if (weakref(current_scene) != null) :
+		current_scene.queue_free()
 	current_scene = new_scene
 	
 	

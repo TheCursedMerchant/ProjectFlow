@@ -10,7 +10,6 @@ onready var anim_player = $AnimationPlayer
 onready var dash_hit_timer = $DashHitTimer
 var can_dash = true
 var is_dash = false
-var fade_maker
 var dash_hit = false
 var dash_count = 0.0
 export var fade_amount = 5
@@ -19,15 +18,11 @@ export var dash_speed = 700
 export var dash_damage = 100
 
 # Dash Stuff
-onready var dash_ray_one = $DashRay_01
-onready var dash_ray_two = $DashRay_02
 var dash_distance = 200
 
 signal player_shake;
 
 func _ready():
-	fade_maker = $FadeMaker
-	
 	# Add Equipment Orb
 	current_orb = scn_orb.instance(0)
 	current_orb.connect("orb_impact", self, "_on_orb_impact")
@@ -42,7 +37,12 @@ func _ready():
 	get_tree().get_root().call_deferred("add_child", camera)
 
 func _physics_process(delta):
-
+	
+	if move_vector != Vector2() :
+		trail.emitting = true
+	else :
+		trail.emitting = false
+		
 	if dash_count > 0 : 
 		if ( Input.is_action_just_pressed("ui_dash") && (dash_timer.time_left <= dash_timer.get_wait_time() * (1 / dash_count) ) ): 
 			dash()
@@ -55,6 +55,7 @@ func _physics_process(delta):
 	# Check for input
 	if (!is_dash): 
 		if Input.is_action_pressed("ui_up"):
+			trail.emitting = true
 			move_vector.y = -move_speed;
 			move_direction = move_vector.normalized()
 		if Input.is_action_pressed("ui_down"):

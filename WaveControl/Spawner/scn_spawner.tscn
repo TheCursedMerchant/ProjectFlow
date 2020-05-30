@@ -3,10 +3,6 @@
 [ext_resource path="res://WaveControl/Spawner/scr_spawner.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Enemies/Blocker/scn_blocker.tscn" type="PackedScene" id=2]
 
-
-
-
-
 [node name="Spawner" type="Node2D"]
 script = ExtResource( 1 )
 scn_spawn_item = ExtResource( 2 )

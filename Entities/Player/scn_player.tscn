@@ -80,7 +80,8 @@ script = ExtResource( 1 )
 
 [node name="Trail" type="Particles2D" parent="."]
 modulate = Color( 0.552941, 0.521569, 0.996078, 1 )
-amount = 100
+emitting = false
+amount = 10
 speed_scale = 2.0
 local_coords = false
 process_material = SubResource( 3 )
