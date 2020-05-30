@@ -1,8 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Score/scr_score_container.gd" type="Script" id=1]
-[ext_resource path="res://Score/scr_score.gd" type="Script" id=2]
-
+[ext_resource path="res://GUI/Score/scr_score_container.gd" type="Script" id=1]
+[ext_resource path="res://GUI/Score/scr_score.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://font/Azonix-1VB0.otf"

@@ -3,11 +3,12 @@
 [ext_resource path="res://Engine/scr_game_manager.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/scn_player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Util/Scn_dev_tool.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Score/scn_score.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GUI/Score/scn_score.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/Enemies/Blocker/scn_blocker.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WaveControl/WaveController/scn_wave_controller.tscn" type="PackedScene" id=6]
 [ext_resource path="res://WaveControl/SpawnGroup/scn_spawn_group.tscn" type="PackedScene" id=7]
 [ext_resource path="res://WaveControl/Spawner/scn_spawner.tscn" type="PackedScene" id=8]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 315.973
