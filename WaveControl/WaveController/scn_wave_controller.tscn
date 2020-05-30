@@ -2,7 +2,7 @@
 
 [ext_resource path="res://WaveControl/WaveController/scr_wave_controller.gd" type="Script" id=1]
 
-
-
-[node name="WaveController" type="Node"]
+[node name="WaveController" type="Node" groups=[
+"WaveController",
+]]
 script = ExtResource( 1 )

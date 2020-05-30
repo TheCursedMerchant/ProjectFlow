@@ -17,7 +17,26 @@ var path_game_over_menu = "res://GUI/GameOverMenu/scn_game_over_menu.tscn"
 # Scene Tracking
 var path_start_scene = "res://Rooms/scn_tmp_room.tscn"
 var path_last_room
+onready var current_scene = get_tree().current_scene
 
 # Developer Mode
 var dev_mode_enabled = true
 var devTool
+
+# Changing Scenes 
+func goto_scene(path):
+	clean_up_scene()
+	var s = ResourceLoader.load(path)
+	var new_scene = s.instance()
+	get_tree().get_root().add_child(new_scene)
+	get_tree().set_current_scene(new_scene)
+	current_scene.queue_free()
+	current_scene = new_scene
+	
+	
+func clean_up_scene() :
+	var scene_children = get_tree().get_root().get_children()
+	for child in scene_children : 
+		if child.is_in_group("Clean") :
+			child.queue_free() 
+			

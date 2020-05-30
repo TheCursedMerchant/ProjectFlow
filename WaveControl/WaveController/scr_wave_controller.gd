@@ -11,8 +11,6 @@ var game_manager
 signal wave_finished
 
 func _ready() : 
-	game_manager = get_tree().get_root().get_child(2)
-	connect("wave_finished", game_manager, "on_waves_finished")
 	spawnGroups = get_children()
 	spawnCount = spawnGroups.size()
 	for sg in spawnGroups :

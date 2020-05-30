@@ -2,7 +2,8 @@
 
 [ext_resource path="res://Engine/Camera/scr_main_camera.gd" type="Script" id=1]
 
-
-[node name="MainCamera" type="Camera2D"]
+[node name="MainCamera" type="Camera2D" groups=[
+"Clean",
+]]
 current = true
 script = ExtResource( 1 )
