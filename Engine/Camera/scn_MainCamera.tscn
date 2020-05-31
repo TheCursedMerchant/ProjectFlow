@@ -6,4 +6,5 @@
 "Clean",
 ]]
 current = true
+zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
