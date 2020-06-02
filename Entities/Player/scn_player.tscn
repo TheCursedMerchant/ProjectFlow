@@ -4,10 +4,10 @@
 [ext_resource path="res://Entities/Player/spr-player-sheet.png" type="Texture" id=2]
 [ext_resource path="res://Entities/Player/proto_floor.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=1]
 radius = 15.8819
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "Dash"
 length = 0.1
 tracks/0/type = "value"
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frames")
@@ -50,26 +50,29 @@ tracks/0/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.00740741, 0.840741, 0.977778 )
 colors = PoolColorArray( 0.513726, 0.560784, 0.996078, 0.501961, 0.558609, 0.601388, 0.990692, 0.449576, 0.891075, 0.902155, 0.95079, 0.0615431, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=6]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 angular_velocity = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 5 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
 collision_layer = 2
 script = ExtResource( 1 )
+health_points = 150
+move_speed = 100
+dash_speed = 350
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -0.214645 )
@@ -79,7 +82,7 @@ region_rect = Rect2( 32, 32, 32, 32 )
 
 [node name="MoveBox" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.179489 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -93,8 +96,8 @@ one_shot = true
 wait_time = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Dash = SubResource( 5 )
-anims/Idle = SubResource( 6 )
+anims/Dash = SubResource( 2 )
+anims/Idle = SubResource( 3 )
 
 [node name="Trail" type="Particles2D" parent="."]
 modulate = Color( 0.552941, 0.521569, 0.996078, 1 )
@@ -102,7 +105,7 @@ emitting = false
 amount = 10
 speed_scale = 2.0
 local_coords = false
-process_material = SubResource( 3 )
+process_material = SubResource( 6 )
 texture = ExtResource( 3 )
 [connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]
 [connection signal="timeout" from="DashHitTimer" to="." method="_on_DashHitTimer_timeout"]

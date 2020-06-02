@@ -57,25 +57,25 @@ func _physics_process(delta):
 	if (!is_dash): 
 		if Input.is_action_pressed("ui_up"):
 			sprite.frame = 2
-			move_vector.y = -move_speed;
+			move_vector.y += -move_speed;
 			move_direction = move_vector.normalized()
 		if Input.is_action_pressed("ui_down"):
 			sprite.frame = 0
-			move_vector.y = move_speed; 
+			move_vector.y += move_speed; 
 			move_direction = move_vector.normalized()
 		if Input.is_action_pressed("ui_left"):
 			sprite.frame = 3
-			move_vector.x = -move_speed;
+			move_vector.x += -move_speed;
 			move_direction = move_vector.normalized() 
 		if Input.is_action_pressed("ui_right"):
 			sprite.frame = 1
-			move_vector.x = move_speed;
+			move_vector.x += move_speed;
 			move_direction = move_vector.normalized() 
 			
 	if Input.is_action_just_pressed("ui_dash") && can_dash:
 		dash() 
 	
-	move_and_slide(move_vector)
+	move_vector = move_and_slide(move_vector)
 	
 func dash():
 	dash_count += 1
