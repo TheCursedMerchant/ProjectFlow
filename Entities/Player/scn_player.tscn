@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Entities/Player/scr_player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/spr-player-sheet.png" type="Texture" id=2]
 [ext_resource path="res://Entities/Player/proto_floor.png" type="Texture" id=3]
+[ext_resource path="res://Entities/Player/scr_player_state_machine.gd" type="Script" id=4]
+[ext_resource path="res://Entities/Player/States/scr_idle.gd" type="Script" id=5]
+[ext_resource path="res://Entities/Player/States/scr_move.gd" type="Script" id=6]
+[ext_resource path="res://Entities/Player/States/scr_dash.gd" type="Script" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.8819
@@ -68,11 +72,11 @@ color_ramp = SubResource( 5 )
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
+editor/display_folded = true
 collision_layer = 2
 script = ExtResource( 1 )
 health_points = 150
 move_speed = 100
-dash_speed = 350
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -0.214645 )
@@ -84,10 +88,6 @@ region_rect = Rect2( 32, 32, 32, 32 )
 [node name="MoveBox" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.179489 )
 shape = SubResource( 1 )
-
-[node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
 
 [node name="DashHitTimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -108,6 +108,19 @@ speed_scale = 2.0
 local_coords = false
 process_material = SubResource( 6 )
 texture = ExtResource( 3 )
-[connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]
+
+[node name="StateMachine" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 4 )
+START_STATE = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
 [connection signal="timeout" from="DashHitTimer" to="." method="_on_DashHitTimer_timeout"]
 [connection signal="timeout" from="DashCoolDown" to="." method="_on_DashCoolDown_timeout"]
