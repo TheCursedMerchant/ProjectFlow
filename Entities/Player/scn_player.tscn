@@ -81,6 +81,7 @@ radius = 15.8819
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
+z_index = 10
 collision_layer = 2
 script = ExtResource( 1 )
 health_points = 150

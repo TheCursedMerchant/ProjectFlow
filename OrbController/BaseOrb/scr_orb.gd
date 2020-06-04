@@ -73,7 +73,6 @@ func idle() :
 func shoot(): 
 	# Shoot orb
 	global_position += move_direction * move_speed
-	trail.texture = $Sprite
 	trail.emitting = true
 	
 func charge():

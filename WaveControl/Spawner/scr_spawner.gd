@@ -1,6 +1,7 @@
 extends Node2D
 
 export (PackedScene) var scn_spawn_item;
+onready var sprite = $Sprite
 var can_spawn = true
 
 signal spawn_updated
@@ -10,6 +11,9 @@ func _ready():
 
 func spawn():
 	if(can_spawn) :
+		
+		sprite.frame = 0
+		sprite.play("default")
 		
 		if get_parent().get("spawn_count") != null : 
 			get_parent().spawn_count += 1 
