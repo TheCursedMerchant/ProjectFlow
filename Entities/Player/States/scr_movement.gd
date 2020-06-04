@@ -25,3 +25,14 @@ func get_move_input() :
 		return true
 	# If no movement inputs detected return false 
 	return false
+	
+func get_move_animation(direction : Vector2) :
+	if direction.y == 1 :
+		return "_down"
+	elif direction.y == -1 : 
+		return "_up"
+	elif direction.x == 1 :
+		return "_right"
+	elif direction.x == -1 :
+		return "_left"
+	return "_down"

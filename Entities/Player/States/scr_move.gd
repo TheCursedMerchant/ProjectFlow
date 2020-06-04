@@ -6,12 +6,12 @@ func process(delta):
 	target.sprite.play(animation_sprite)
 
 func enter () :
-	animation_sprite = "move" + target.move_sprite_name
-	target.trail.texture = target.sprite.frames.get_frame(animation_sprite, target.sprite.frame)
 	target.trail.emitting = true
 	target.move_vector = Vector2() 
 	target.move_direction = get_input_direction()
 	target.move_vector += get_input_direction() * target.move_speed
+	animation_sprite = "move" + get_move_animation(target.move_direction)
+	target.trail.texture = target.sprite.frames.get_frame(animation_sprite, target.sprite.frame)
 
 func update(delta) :
 	target.move_vector = target.move_and_slide(target.move_vector)
