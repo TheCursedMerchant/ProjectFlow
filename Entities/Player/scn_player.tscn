@@ -1,58 +1,18 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Entities/Player/scr_player.gd" type="Script" id=1]
-[ext_resource path="res://Entities/Player/spr-player-sheet.png" type="Texture" id=2]
-[ext_resource path="res://Entities/Player/proto_floor.png" type="Texture" id=3]
-[ext_resource path="res://Entities/Player/scr_player_state_machine.gd" type="Script" id=4]
-[ext_resource path="res://Entities/Player/States/scr_idle.gd" type="Script" id=5]
-[ext_resource path="res://Entities/Player/States/scr_move.gd" type="Script" id=6]
-[ext_resource path="res://Entities/Player/States/scr_dash.gd" type="Script" id=7]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 15.8819
-
-[sub_resource type="Animation" id=2]
-resource_name = "Dash"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:collision_mask")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.05, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 2, 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.05, 0.1 ),
-"transitions": PoolRealArray( 3.24901, 2 ),
-"update": 2,
-"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frames")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 1,
-"values": [  ]
-}
+[ext_resource path="res://Entities/Player/proto_floor.png" type="Texture" id=2]
+[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite1.png" type="Texture" id=3]
+[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite2.png" type="Texture" id=4]
+[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite3.png" type="Texture" id=5]
+[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite4.png" type="Texture" id=6]
+[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite5.png" type="Texture" id=7]
+[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite6.png" type="Texture" id=8]
+[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite7.png" type="Texture" id=9]
+[ext_resource path="res://Entities/Player/scr_player_state_machine.gd" type="Script" id=10]
+[ext_resource path="res://Entities/Player/States/scr_idle.gd" type="Script" id=11]
+[ext_resource path="res://Entities/Player/States/scr_move.gd" type="Script" id=12]
+[ext_resource path="res://Entities/Player/States/scr_dash.gd" type="Script" id=13]
 
 [sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.00740741, 0.840741, 0.977778 )
@@ -69,21 +29,43 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color_ramp = SubResource( 5 )
 
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "move_down",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 15.8819
+
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
-editor/display_folded = true
 collision_layer = 2
 script = ExtResource( 1 )
 health_points = 150
 move_speed = 100
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -0.214645 )
+[node name="Trail" type="Particles2D" parent="."]
+modulate = Color( 0.552941, 0.521569, 0.996078, 1 )
+emitting = false
+amount = 10
+speed_scale = 2.0
+local_coords = false
+process_material = SubResource( 6 )
 texture = ExtResource( 2 )
-vframes = 2
-hframes = 6
-region_rect = Rect2( 32, 32, 32, 32 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -0.214645 )
+frames = SubResource( 7 )
+animation = "idle"
 
 [node name="MoveBox" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.179489 )
@@ -96,31 +78,17 @@ one_shot = true
 [node name="DashCoolDown" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Dash = SubResource( 2 )
-anims/Idle = SubResource( 3 )
-
-[node name="Trail" type="Particles2D" parent="."]
-modulate = Color( 0.552941, 0.521569, 0.996078, 1 )
-emitting = false
-amount = 10
-speed_scale = 2.0
-local_coords = false
-process_material = SubResource( 6 )
-texture = ExtResource( 3 )
-
 [node name="StateMachine" type="Node" parent="."]
-editor/display_folded = true
-script = ExtResource( 4 )
+script = ExtResource( 10 )
 START_STATE = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource( 5 )
+script = ExtResource( 11 )
 
 [node name="Move" type="Node" parent="StateMachine"]
-script = ExtResource( 6 )
+script = ExtResource( 12 )
 
 [node name="Dash" type="Node" parent="StateMachine"]
-script = ExtResource( 7 )
+script = ExtResource( 13 )
 [connection signal="timeout" from="DashHitTimer" to="." method="_on_DashHitTimer_timeout"]
 [connection signal="timeout" from="DashCoolDown" to="." method="_on_DashCoolDown_timeout"]

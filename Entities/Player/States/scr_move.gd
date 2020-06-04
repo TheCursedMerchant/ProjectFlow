@@ -1,6 +1,13 @@
 extends "res://Entities/Player/States/scr_movement.gd"
 
+var target_sprite 
+
+func process(delta):
+	target.sprite.play(animation_sprite)
+
 func enter () :
+	animation_sprite = "move" + target.move_sprite_name
+	target.trail.texture = target.sprite.frames.get_frame(animation_sprite, target.sprite.frame)
 	target.trail.emitting = true
 	target.move_vector = Vector2() 
 	target.move_direction = get_input_direction()

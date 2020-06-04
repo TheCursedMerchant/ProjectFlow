@@ -40,6 +40,9 @@ func set_active(value):
 	if not _active:
 		states_stack = []
 		current_state = null
+		
+func _process(delta):
+	current_state.process(delta)
 
 func _input(event):
 	current_state.handle_input(event)

@@ -9,7 +9,6 @@ var current_orb
 onready var dash_timer = $DashTimer
 onready var dash_cooldown = $DashCoolDown
 onready var trail = $Trail
-onready var anim_player = $AnimationPlayer
 onready var dash_hit_timer = $DashHitTimer
 onready var sprite = $Sprite
 
@@ -24,6 +23,7 @@ var is_dash = false
 var dash_hit = false
 var dash_count = 0
 var move_direction = Vector2(1, 0)
+var move_sprite_name = "_down"
 
 # Signals 
 signal player_shake;

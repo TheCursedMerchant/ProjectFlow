@@ -1,5 +1,8 @@
 extends "res://Entities/Player/States/scr_movement.gd"
 
+func process(delta):
+	target.sprite.play("idle")
+
 func update(delta):
 	if get_move_input() : 
 		emit_signal("finished", "move")

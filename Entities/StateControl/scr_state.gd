@@ -8,6 +8,7 @@ extends Node
 signal finished(next_state_name)
 
 var target
+var animation_sprite
 
 func _ready() :
 	target = get_parent().get_parent()
@@ -23,6 +24,9 @@ func exit():
 func handle_input(event):
 	return
 
+func process(delta):
+	return
+	
 func update(delta):
 	return
 
