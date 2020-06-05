@@ -14,7 +14,7 @@ onready var sprite = $Sprite
 
 # Player Config
 export var fade_amount = 5
-export var dash_speed = 1000
+export var dash_speed = 750
 export var dash_damage = 100
 
 # State Properties 
