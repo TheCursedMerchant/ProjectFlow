@@ -13,6 +13,7 @@ export var max_power = 100
 onready var shoot_timer = $ShootTimer
 onready var recover_timer = $RecoverTimer
 onready var gui_arrow = $Arrow_GUI
+onready var mouse_vector = $MouseRay
 onready var trail = $Trail
 
 # State Members 
@@ -105,3 +106,10 @@ func _on_Timer_timeout():
 		current_state = STATES.RECOVER
 	else :
 		current_state = STATES.IDLE
+		
+func check_mouse_position () :
+	var mouse_pos = get_global_mouse_position()
+	mouse_vector.set_cast_to( (mouse_pos - position) * position.direction_to(mouse_pos) )
+	if mouse_vector.is_colliding() :
+		return mouse_vector.get_collider().is_in_group("Solid")
+	return true

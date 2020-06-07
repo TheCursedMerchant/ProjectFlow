@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cross_hair.png-ecac3478aedb64d48429793bf995f0e8.stex"
+path="res://.import/flow_player_walk_down_sprite1.png-1af7506711a296037e1ba5e2b2c87562.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cross_hair.png"
-dest_files=[ "res://.import/cross_hair.png-ecac3478aedb64d48429793bf995f0e8.stex" ]
+source_file="res://Entities/Player/Animations/spr_walk_up/flow_player_walk_down_sprite1.png"
+dest_files=[ "res://.import/flow_player_walk_down_sprite1.png-1af7506711a296037e1ba5e2b2c87562.stex" ]
 
 [params]
 
