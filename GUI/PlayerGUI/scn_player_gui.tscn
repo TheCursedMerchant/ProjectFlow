@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GUI/PlayerGUI/scr_health_pieces.gd" type="Script" id=1]
+[ext_resource path="res://GUI/PlayerGUI/spr_health_ui2.png" type="Texture" id=2]
+
+[node name="PlayerUi" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+
+[node name="Health Pieces" type="HBoxContainer" parent="Control"]
+margin_top = 0.949951
+margin_right = 1014.0
+margin_bottom = 580.95
+rect_scale = Vector2( 3, 3 )
+custom_constants/separation = -5
+script = ExtResource( 1 )
+
+[node name="health_1" type="TextureRect" parent="Control/Health Pieces"]
+margin_right = 16.0
+margin_bottom = 580.0
+texture = ExtResource( 2 )
+
+[node name="health_2" type="TextureRect" parent="Control/Health Pieces"]
+margin_left = 11.0
+margin_right = 27.0
+margin_bottom = 580.0
+texture = ExtResource( 2 )
+
+[node name="health_3" type="TextureRect" parent="Control/Health Pieces"]
+margin_left = 22.0
+margin_right = 38.0
+margin_bottom = 580.0
+texture = ExtResource( 2 )

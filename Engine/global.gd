@@ -34,6 +34,9 @@ func goto_scene(path):
 		current_scene.get_ref().queue_free()
 	current_scene = weakref(new_scene)
 	
+func reload_scene() :
+	goto_scene(current_scene.get_ref().filename)
+	
 	
 func clean_up_scene() :
 	var scene_children = get_tree().get_root().get_children()

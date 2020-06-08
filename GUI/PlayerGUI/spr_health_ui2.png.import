@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spr_health_ui.png-aecab98fad32e93a907ddf4642fb9fcf.stex"
+path="res://.import/spr_health_ui2.png-d938bc30b59efa2f1c651e0826b034d6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/PlayerGUI/spr_health_ui.png"
-dest_files=[ "res://.import/spr_health_ui.png-aecab98fad32e93a907ddf4642fb9fcf.stex" ]
+source_file="res://GUI/PlayerGUI/spr_health_ui2.png"
+dest_files=[ "res://.import/spr_health_ui2.png-d938bc30b59efa2f1c651e0826b034d6.stex" ]
 
 [params]
 
