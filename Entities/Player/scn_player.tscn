@@ -2,30 +2,30 @@
 
 [ext_resource path="res://Entities/Player/scr_player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/proto_floor.png" type="Texture" id=2]
-[ext_resource path="res://Entities/Player/Animations/spr_idle/spr_idle4.png" type="Texture" id=3]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_right/flow_player_walk_down_sprite2.png" type="Texture" id=4]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_right/flow_player_walk_down_sprite3.png" type="Texture" id=5]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_right/flow_player_walk_down_sprite4.png" type="Texture" id=6]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_right/flow_player_walk_down_sprite5.png" type="Texture" id=7]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_right/flow_player_walk_down_sprite6.png" type="Texture" id=8]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_right/flow_player_walk_down_sprite7.png" type="Texture" id=9]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_right/flow_player_walk_down_sprite8.png" type="Texture" id=10]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_right/flow_player_walk_down_sprite9.png" type="Texture" id=11]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite2.png" type="Texture" id=12]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite3.png" type="Texture" id=13]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite4.png" type="Texture" id=14]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite5.png" type="Texture" id=15]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite6.png" type="Texture" id=16]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_down/flow_player_walk_down_sprite7.png" type="Texture" id=17]
-[ext_resource path="res://Entities/Player/Animations/spr_idle/spr_idle3.png" type="Texture" id=18]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_up/flow_player_walk_down_sprite2.png" type="Texture" id=19]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_up/flow_player_walk_down_sprite3.png" type="Texture" id=20]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_up/flow_player_walk_down_sprite4.png" type="Texture" id=21]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_up/flow_player_walk_down_sprite5.png" type="Texture" id=22]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_up/flow_player_walk_down_sprite6.png" type="Texture" id=23]
-[ext_resource path="res://Entities/Player/Animations/spr_walk_up/flow_player_walk_down_sprite7.png" type="Texture" id=24]
-[ext_resource path="res://Entities/Player/Animations/spr_idle/spr_idle2.png" type="Texture" id=25]
-[ext_resource path="res://Entities/Player/Animations/spr_idle/spr_idle1.png" type="Texture" id=26]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player4.png" type="Texture" id=3]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player5.png" type="Texture" id=4]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player6.png" type="Texture" id=5]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player7.png" type="Texture" id=6]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player8.png" type="Texture" id=7]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player9.png" type="Texture" id=8]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player20.png" type="Texture" id=9]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player21.png" type="Texture" id=10]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player22.png" type="Texture" id=11]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player23.png" type="Texture" id=12]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player10.png" type="Texture" id=13]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player11.png" type="Texture" id=14]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player12.png" type="Texture" id=15]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player13.png" type="Texture" id=16]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player14.png" type="Texture" id=17]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player15.png" type="Texture" id=18]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player1.png" type="Texture" id=19]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player2.png" type="Texture" id=20]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player16.png" type="Texture" id=21]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player17.png" type="Texture" id=22]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player18.png" type="Texture" id=23]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player19.png" type="Texture" id=24]
+[ext_resource path="res://Entities/Player/spr_player_base.png" type="Texture" id=25]
+[ext_resource path="res://Entities/Player/Animations/test_animations/spr-flow-player3.png" type="Texture" id=26]
 [ext_resource path="res://Entities/Player/scr_player_state_machine.gd" type="Script" id=27]
 [ext_resource path="res://Entities/Player/States/scr_idle.gd" type="Script" id=28]
 [ext_resource path="res://Entities/Player/States/scr_move.gd" type="Script" id=29]
@@ -49,44 +49,44 @@ color_ramp = SubResource( 2 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": false,
-"name": "move_left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "move_right",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "move_down",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": false,
-"name": "idle_up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "move_up",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "move_left",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 19 ) ],
 "loop": false,
-"name": "idle_left",
+"name": "idle_up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 20 ) ],
 "loop": false,
 "name": "idle_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "move_down",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 25 ) ],
 "loop": false,
 "name": "idle_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "idle_left",
 "speed": 5.0
 } ]
 
@@ -114,7 +114,7 @@ texture = ExtResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -0.214645 )
 frames = SubResource( 4 )
-animation = "idle_down"
+animation = "idle_left"
 
 [node name="MoveBox" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.179489 )
@@ -128,7 +128,6 @@ one_shot = true
 wait_time = 0.5
 
 [node name="StateMachine" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 27 )
 START_STATE = NodePath("Idle")
 

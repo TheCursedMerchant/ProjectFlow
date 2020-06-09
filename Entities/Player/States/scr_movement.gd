@@ -5,16 +5,16 @@ func get_input_direction():
 	var input_direction = Vector2()
 	if Input.is_action_pressed("ui_up") :
 		input_direction.y = -1
-		target.sprite.flip_h = false
+#		target.sprite.flip_h = false
 	if Input.is_action_pressed("ui_down") :
 		input_direction.y = 1
-		target.sprite.flip_h = false
+#		target.sprite.flip_h = false
 	if Input.is_action_pressed("ui_left") :
 		input_direction.x = -1
-		target.sprite.flip_h = true
+#		target.sprite.flip_h = true
 	if Input.is_action_pressed("ui_right") :
 		input_direction.x = 1
-		target.sprite.flip_h = false
+#		target.sprite.flip_h = false
 	return input_direction
 	
 func get_move_input() :
@@ -38,5 +38,5 @@ func get_move_animation(direction : Vector2) :
 	elif direction.x == 1 :
 		return "_right"
 	elif direction.x == -1 :
-		return "_right"
+		return "_left"
 	return "_down"
