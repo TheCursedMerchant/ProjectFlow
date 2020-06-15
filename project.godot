@@ -33,6 +33,8 @@ shapes/navigation/geometry_color=Color( 0.101961, 1, 1, 0.4 )
 
 [display]
 
+window/size/resizable=false
+window/size/fullscreen=true
 mouse_cursor/custom_image="res://art/cross_hair.png"
 
 [input]
@@ -99,5 +101,5 @@ quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 quality/2d/use_pixel_snap=true
 threads/thread_model=2
-environment/default_clear_color=Color( 0.25098, 0.333333, 0.470588, 1 )
+environment/default_clear_color=Color( 0.470588, 0.701961, 0.572549, 1 )
 environment/default_environment="res://default_env.tres"
