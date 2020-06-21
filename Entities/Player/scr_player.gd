@@ -32,6 +32,7 @@ var damage_direction = Vector2()
 # Signals 
 signal player_shake;
 signal player_damaged;
+signal player_die;
 
 func _process(delta) :
 	if Input.is_action_just_pressed("ui_accept") :
@@ -67,7 +68,14 @@ func _on_orb_impact(force):
 func take_damage(damage, direction) :
 	damage_direction = direction
 	health_points -= damage
-	emit_signal("player_damaged")
-	emit_signal("player_shake", .35 , 20, 20)
-	state_machine.current_state.emit_signal("finished", "damage") 
+	
+	if health_points > 0 :
+		emit_signal("player_damaged", health_points)
+		emit_signal("player_shake", .35 , 20, 20)
+		state_machine.current_state.emit_signal("finished", "damage") 
+	else : 
+		die()
 
+func die():
+	emit_signal("player_die") 
+	global.goto_scene(global.path_game_over_menu)

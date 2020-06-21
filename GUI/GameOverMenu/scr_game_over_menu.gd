@@ -4,7 +4,7 @@ onready var menu = $GameOverMenu
 
 func _on_Restart_pressed():
 	global.current_score = 0
-	global.goto_scene(global.path_start_scene)
+	global.goto_scene(global.path_previous_scene)
 	
 func _on_Quit_pressed():
 	get_tree().quit()

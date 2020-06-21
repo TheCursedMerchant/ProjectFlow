@@ -16,8 +16,8 @@ var path_game_over_menu = "res://GUI/GameOverMenu/scn_game_over_menu.tscn"
 
 # Scene Tracking
 var path_start_scene = "res://Rooms/scn_tmp_room.tscn"
-var path_last_room
 onready var current_scene = weakref(get_tree().current_scene)
+var path_previous_scene
 
 # Developer Mode
 var dev_mode_enabled = true
@@ -25,6 +25,7 @@ var devTool
 
 # Changing Scenes 
 func goto_scene(path):
+	path_previous_scene = current_scene.get_ref().filename
 	clean_up_scene()
 	var s = ResourceLoader.load(path)
 	var new_scene = s.instance()
@@ -35,9 +36,10 @@ func goto_scene(path):
 	current_scene = weakref(new_scene)
 	
 func reload_scene() :
-	goto_scene(current_scene.get_ref().filename)
-	
-	
+	clean_up_scene()
+	get_tree().get_root().add_child(current_scene.get_ref())
+	get_tree().set_current_scene(current_scene.get_ref())
+
 func clean_up_scene() :
 	var scene_children = get_tree().get_root().get_children()
 	for child in scene_children : 

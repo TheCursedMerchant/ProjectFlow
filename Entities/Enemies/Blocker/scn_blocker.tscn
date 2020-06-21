@@ -11,7 +11,7 @@ var spawner
 
 signal entity_died
 
-func take_damage(damage : int):
+func take_damage(damage : int, direction : Vector2):
 	health_points -= damage
 	
 func _process(delta): 
@@ -26,7 +26,7 @@ func die() :
 func _on_Hurtbox_body_entered(body):
 	if (body.is_in_group(\"Player\") && body.dash_hit ):
 		body.emit_signal(\"player_shake\", .35 , 20, 20) 
-		take_damage(body.dash_damage)
+		take_damage(body.dash_damage, Vector2())
 "
 
 [sub_resource type="RectangleShape2D" id=2]

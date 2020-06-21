@@ -50,7 +50,7 @@ func _physics_process(delta):
 func _on_Orb_area_entered(area):
 	if (area.is_in_group("Enemy") && current_state == STATES.SHOOT) :
 		emit_signal("orb_impact", current_power)
-		area.get_parent().take_damage(damage * current_power / 10)
+		area.get_parent().take_damage(damage * current_power / 10, Vector2())
 		shoot_timer.start()
 		current_state = STATES.KNOCKBACK
 	elif (area.is_in_group("Orb") ) :
