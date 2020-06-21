@@ -34,7 +34,6 @@ shapes/navigation/geometry_color=Color( 0.101961, 1, 1, 0.4 )
 [display]
 
 window/size/resizable=false
-window/size/fullscreen=true
 mouse_cursor/custom_image="res://art/cross_hair.png"
 
 [input]

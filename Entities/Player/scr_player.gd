@@ -11,6 +11,10 @@ onready var dash_cooldown = $DashCoolDown
 onready var trail = $Trail
 onready var dash_hit_timer = $DashHitTimer
 onready var sprite = $Sprite
+onready var damage_timer = $DamageTimer
+
+# TODO: Remove while not used
+onready var state_machine = $StateMachine
 
 # Player Config
 export var fade_amount = 5
@@ -19,14 +23,19 @@ export var dash_damage = 100
 
 # State Properties 
 var can_dash = true
-var is_dash = false
 var dash_hit = false
 var dash_count = 0
 var move_direction = Vector2(1, 0)
 var move_sprite_name = "_down"
+var damage_direction = Vector2()
 
 # Signals 
 signal player_shake;
+signal player_damaged;
+
+func _process(delta) :
+	if Input.is_action_just_pressed("ui_accept") :
+		take_damage(1, Vector2(-1, 0)) 
 
 func _ready():
 	# Add Equipment Orb
@@ -54,4 +63,11 @@ func _on_DashCoolDown_timeout():
 # Shake Camera on Orb impact
 func _on_orb_impact(force):
 	emit_signal("player_shake", 0.35, 20 * force, 20)
+	
+func take_damage(damage, direction) :
+	damage_direction = direction
+	health_points -= damage
+	emit_signal("player_damaged")
+	emit_signal("player_shake", .35 , 20, 20)
+	state_machine.current_state.emit_signal("finished", "damage") 
 
