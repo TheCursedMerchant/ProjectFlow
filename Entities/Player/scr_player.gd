@@ -12,6 +12,7 @@ onready var trail = $Trail
 onready var dash_hit_timer = $DashHitTimer
 onready var sprite = $Sprite
 onready var damage_timer = $DamageTimer
+onready var ui_controller = $UI
 
 # TODO: Remove while not used
 onready var state_machine = $StateMachine
@@ -20,6 +21,7 @@ onready var state_machine = $StateMachine
 export var fade_amount = 5
 export var dash_speed = 750
 export var dash_damage = 100
+export var dash_regen_rate = 80
 
 # State Properties 
 var can_dash = true
@@ -28,6 +30,7 @@ var dash_count = 0
 var move_direction = Vector2(1, 0)
 var move_sprite_name = "_down"
 var damage_direction = Vector2()
+var dash_progress = 100
 
 # Signals 
 signal player_shake;
@@ -35,6 +38,13 @@ signal player_damaged;
 signal player_die;
 
 func _process(delta) :
+	# Control our dash progress
+	if dash_progress < 100 :
+		dash_progress = min(dash_progress + dash_regen_rate * delta, 100)
+		ui_controller.update_dash_bar(dash_progress)
+	elif !can_dash : 
+		can_dash = true
+		
 	if Input.is_action_just_pressed("ui_accept") :
 		take_damage(1, Vector2(-1, 0)) 
 
@@ -58,8 +68,8 @@ func _on_DashHitTimer_timeout():
 	dash_hit = false
 
 # Player can Dash Again
-func _on_DashCoolDown_timeout():
-	can_dash = true
+#func _on_DashCoolDown_timeout():
+#	can_dash = true
 
 # Shake Camera on Orb impact
 func _on_orb_impact(force):

@@ -23,6 +23,7 @@ func enter() :
 	target.move_vector = Vector2()
 	target.dash_hit = true
 	target.can_dash = false
+	target.dash_progress = 0
 	target.dash_cooldown.start()
 	target.collision_mask = 2
 	
@@ -42,5 +43,5 @@ func on_dash_timeout() :
 func dash_refresh() :
 	if dash_count == 0 :
 		return false
-	return ( dash_timer.time_left <= dash_timer.get_wait_time() ) # * (1 / dash_count)
+	return ( dash_timer.time_left <= dash_timer.get_wait_time() )  #* (1 / dash_count)
 

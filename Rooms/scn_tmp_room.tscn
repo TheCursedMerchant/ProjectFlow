@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Engine/scr_game_manager.gd" type="Script" id=1]
 [ext_resource path="res://art/Tilesets/grass_tile_set.tres" type="TileSet" id=2]
 [ext_resource path="res://art/Tilesets/tlst_geometry.tres" type="TileSet" id=3]
 [ext_resource path="res://Entities/Player/scn_player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Util/Scn_dev_tool.tscn" type="PackedScene" id=5]
-[ext_resource path="res://GUI/Score/scn_score.tscn" type="PackedScene" id=6]
-[ext_resource path="res://WaveControl/WaveController/scn_wave_controller.tscn" type="PackedScene" id=7]
-[ext_resource path="res://WaveControl/SpawnGroup/scn_spawn_group.tscn" type="PackedScene" id=8]
-[ext_resource path="res://WaveControl/Spawner/scn_spawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Geometry/SpikeBlock/scn_spike_block.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GUI/Score/scn_score.tscn" type="PackedScene" id=7]
+[ext_resource path="res://WaveControl/WaveController/scn_wave_controller.tscn" type="PackedScene" id=8]
+[ext_resource path="res://WaveControl/SpawnGroup/scn_spawn_group.tscn" type="PackedScene" id=9]
+[ext_resource path="res://WaveControl/Spawner/scn_spawner.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 120.002
@@ -37,24 +38,30 @@ move_speed = 150
 
 [node name="Geometry" type="Node" parent="."]
 
-[node name="ScoreBoard" parent="." instance=ExtResource( 6 )]
+[node name="SpikeBlock" parent="Geometry" instance=ExtResource( 6 )]
+position = Vector2( 1480, 1664 )
 
-[node name="WaveController" parent="." instance=ExtResource( 7 )]
+[node name="SpikeBlock2" parent="Geometry" instance=ExtResource( 6 )]
+position = Vector2( 1528, 1664 )
 
-[node name="SpawnGroup" parent="WaveController" instance=ExtResource( 8 )]
+[node name="ScoreBoard" parent="." instance=ExtResource( 7 )]
+
+[node name="WaveController" parent="." instance=ExtResource( 8 )]
+
+[node name="SpawnGroup" parent="WaveController" instance=ExtResource( 9 )]
 visible = false
 position = Vector2( 1496, 1512 )
 
-[node name="s1" parent="WaveController/SpawnGroup" instance=ExtResource( 9 )]
+[node name="s1" parent="WaveController/SpawnGroup" instance=ExtResource( 10 )]
 position = Vector2( 160, 0 )
 
-[node name="s2" parent="WaveController/SpawnGroup" instance=ExtResource( 9 )]
+[node name="s2" parent="WaveController/SpawnGroup" instance=ExtResource( 10 )]
 position = Vector2( -160, 0 )
 
-[node name="s3" parent="WaveController/SpawnGroup" instance=ExtResource( 9 )]
+[node name="s3" parent="WaveController/SpawnGroup" instance=ExtResource( 10 )]
 position = Vector2( 0, 160 )
 
-[node name="s4" parent="WaveController/SpawnGroup" instance=ExtResource( 9 )]
+[node name="s4" parent="WaveController/SpawnGroup" instance=ExtResource( 10 )]
 position = Vector2( 0, -160 )
 
 [node name="TriggerBox" type="Area2D" parent="WaveController/SpawnGroup"]

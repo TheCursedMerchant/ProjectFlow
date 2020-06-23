@@ -1,7 +1,6 @@
 extends "res://Entities/StateControl/scr_state.gd"
 
 export var damage_time = 0.5
-export var knock_back = 10000
 var damage_timer = Timer.new()
 var blink = true
 
@@ -13,7 +12,7 @@ func _ready():
 
 func enter() :
 	damage_timer.start()
-	target.move_and_slide(-target.damage_direction * knock_back)
+	target.move_and_slide(target.damage_direction)
 	
 func process(delta):
 	# TODO: Play appropriate animation 
